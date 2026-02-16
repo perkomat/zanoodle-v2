@@ -1,69 +1,48 @@
-/* Osnovne nastavitve za full-screen in preprečevanje drsenja */
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Prepreči drsenje ob potegu (swipe) */
+    height: 100%; margin: 0; padding: 0; overflow: hidden;
+    background-color: #1a1a1a; color: white; font-family: 'Segoe UI', sans-serif;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-family: sans-serif;
+.menu-screen {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    height: 100vh; text-align: center;
 }
 
-#game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+h1 { color: #FDFD96; font-size: 3rem; margin-bottom: 20px; text-shadow: 2px 2px #000; }
+
+.input-section input {
+    padding: 12px; font-size: 1.1rem; border-radius: 5px; border: 2px solid #FDFD96;
+    background: #333; color: white; text-align: center; margin-bottom: 20px;
 }
 
-#gameCanvas {
-    border: 5px solid #FFD700;
-    display: block;
-    
-    /* KLJUČNO ZA SWIPING */
-    touch-action: none; 
+.player-option {
+    width: 60px; height: 60px; margin: 10px; cursor: pointer;
+    border: 3px solid transparent; border-radius: 50%; transition: 0.3s;
 }
 
-#score-display {
-    margin-bottom: 15px;
-    font-size: 1.5em;
-    color: #00f080;
-    text-align: center;
+.player-option.selected { border-color: #FDFD96; transform: scale(1.2); box-shadow: 0 0 15px #FDFD96; }
+
+.menu-buttons button {
+    width: 220px; padding: 15px; margin: 10px; font-size: 1.2rem; font-weight: bold;
+    background: #FDFD96; border: none; border-radius: 8px; cursor: pointer; transition: 0.2s;
 }
 
-#game-over-message {
-    position: absolute;
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 2em;
-    color: #ff4d4d;
-    box-shadow: 0 0 20px rgba(255, 77, 77, 0.5); 
-}
+.menu-buttons button:hover { background: #fff; transform: translateY(-3px); }
 
-.hidden {
-    display: none;
-}
+#game-container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
 
-/* --- VODNI ŽIG (WATERMARK) --- */
-#watermark {
-    position: fixed; /* Ostane na mestu */
-    bottom: 5px;     /* 5 pikslov od spodnjega roba */
-    right: 5px;      /* 5 pikslov od desnega roba */
-    
-    color: rgba(255, 255, 255, 0.3); 
-    font-size: 0.7em; 
-    
-    z-index: 5; 
-    user-select: none;
-    pointer-events: none;
-}
+#ui-bar { width: 100%; max-width: 500px; display: flex; justify-content: space-between; padding: 10px; color: #FDFD96; font-weight: bold; }
+
+#gameCanvas { border: 4px solid #FDFD96; background: #222; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+
+.table-wrapper { width: 80%; max-width: 400px; max-height: 300px; overflow-y: auto; margin: 20px 0; }
+
+#leaderboard-table { width: 100%; border-collapse: collapse; }
+
+#leaderboard-table th { color: #FDFD96; border-bottom: 2px solid #FDFD96; padding: 10px; }
+
+#leaderboard-table td { padding: 8px; border-bottom: 1px solid #444; }
+
+#watermark { position: fixed; bottom: 5px; right: 5px; font-size: 0.7rem; opacity: 0.3; }
+
+.hidden { display: none !important; }

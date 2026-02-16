@@ -3,32 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Toni Snake - Kača</title>
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    
-    <link rel="stylesheet" href="style.css"> 
+    <title>Zancoodle Snake</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="game-container">
+
+    <div id="start-menu" class="menu-screen">
+        <h1>ZANCOODLE SNAKE</h1>
         
-        <div id="score-display">
-            Točke: 0
+        <div class="input-section">
+            <p>Vnesi svoje ime:</p>
+            <input type="text" id="global-player-name" placeholder="Tvoje ime..." maxlength="12">
         </div>
 
+        <div id="player-selection">
+            <p>Izberi glavo:</p>
+            <div class="options">
+                <img src="toni.png" class="player-option selected" data-image="toni.png">
+                <img src="glava2.png" class="player-option" data-image="glava2.png">
+                <img src="glava3.png" class="player-option" data-image="glava3.png">
+            </div>
+        </div>
+
+        <div class="menu-buttons">
+            <button id="play-btn">IGRAJ</button>
+            <button id="score-btn">SCOREBOARD</button>
+        </div>
+    </div>
+
+    <div id="game-container" class="hidden">
+        <div id="ui-bar">
+            <span id="player-tag">Igralec: -</span>
+            <span id="score-display">Točke: 0</span>
+        </div>
         <canvas id="gameCanvas"></canvas>
+    </div>
 
-        <div id="game-over-message" class="hidden">
-            IGRA KONČANA!<br>
-            Potegni po zaslonu za ponovni zagon.
+    <div id="leaderboard-screen" class="menu-screen hidden">
+        <h2>Najboljši Rezultati</h2>
+        <div class="table-wrapper">
+            <table id="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Igralec</th>
+                        <th>Točke</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body"></tbody>
+            </table>
         </div>
-        
+        <button onclick="location.reload()">NAZAJ V MENI</button>
     </div>
 
-    <div id="watermark">
-        Perkomat productions
-    </div>
+    <div id="watermark">Perkomat productions</div>
 
     <script src="script.js"></script>
 </body>
