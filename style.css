@@ -1,0 +1,69 @@
+/* Osnovne nastavitve za full-screen in preprečevanje drsenja */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prepreči drsenje ob potegu (swipe) */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: sans-serif;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#gameCanvas {
+    border: 5px solid #FFD700;
+    display: block;
+    
+    /* KLJUČNO ZA SWIPING */
+    touch-action: none; 
+}
+
+#score-display {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #00f080;
+    text-align: center;
+}
+
+#game-over-message {
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 2em;
+    color: #ff4d4d;
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.5); 
+}
+
+.hidden {
+    display: none;
+}
+
+/* --- VODNI ŽIG (WATERMARK) --- */
+#watermark {
+    position: fixed; /* Ostane na mestu */
+    bottom: 5px;     /* 5 pikslov od spodnjega roba */
+    right: 5px;      /* 5 pikslov od desnega roba */
+    
+    color: rgba(255, 255, 255, 0.3); 
+    font-size: 0.7em; 
+    
+    z-index: 5; 
+    user-select: none;
+    pointer-events: none;
+}
